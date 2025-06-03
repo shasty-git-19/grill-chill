@@ -3,201 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grill & Chill: Soban Seoul</title>
+  <title> Grill & Chill: Soban Seoul </title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/mobile.css" />
 </head>
 <body>
+
   <div class="hero">
-    <h1>Grill & Chill: <span>Soban Seoul</span></h1>
-    <p class="tagline">Authentic Korean Cuisine, Served with Style</p>
+    <h1> Grill & Chill: <span> Soban Seoul </span></h1>
+    <p class="tagline"> Authentic Korean Cuisine, Served with Style </p>
 
     <div class="menu-container">
       <ul class="nav-menu">
-          <li><a href="#main-div"> Home </a></li>
-          <li><a href="#food menu"> Food Menu </a></li>
-          <li><a href="#add to cart"> Add to Cart </a></li>
-          <li><a href="#review"> Review </a></li>
-          <a href="contact.html">
-              <button class="menu-btn"> Order Now</button>
-          </a>
+          <li><a href="#" onclick="showSection('home-section')"> Home </a></li>
+          <li><a href="#" onclick="showSection('food-menu-section')"> Food Menu </a></li>
+          <li><a href="#" onclick="showSection('confirmOrder')"> Add to Cart </a></li>
+          <li><a href="review.html"> Review </a></li>
+          <li><a href="order.html"><button class="menu-btn"> Order Now </button></a></li>
       </ul>
-  </div>
-  </div>
-
-  <div id="main-div" class="home">
-    <div style="position: relative;">
-            <img class="home-img" src="images/home picture.jpg" width="100%" height="100%">
     </div>
 
-    <section id="food-menu" class="food-menu">
-      <h2>Our Food Menu</h2>
-    
-      <div class="menu-category">
-        <h3>Appetizers</h3>
-        <div class="menu-items">
-          <div class="menu-card">
-            <img src="images/japchae.jpg" alt="Japchae">
-            <h4>Japchae – ₱220</h4>
-            <p>Stir-fried glass noodles with vegetables and beef.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/haemul-pajeon.jpg" alt="Haemul Pajeon">
-            <h4>Haemul Pajeon – ₱250</h4>
-            <p>Seafood green onion pancake, crispy and savory.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/teokkboki.jpg" alt="Teokkboki">
-            <h4>Teokkboki – ₱230</h4>
-            <p>Chewy rice cakes stir-fried in a spicy-sweet gochujang sauce with fish cakes and eggs.</p>
-          </div>
-        </div>
-      </div>
-    
-      <div class="menu-category">
-        <h3>Main Course</h3>
-        <div class="menu-items">
-          <div class="menu-card">
-            <img src="images/bulgogi.jpg" alt="Bulgogi">
-            <h4>Bulgogi – ₱280</h4>
-            <p>Grilled marinated beef served with sides and rice.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/budae-jjigae.jpg" alt="Budae Jjigae">
-            <h4>Budae Jjigae – ₱320</h4>
-            <p>Army stew with sausage, tofu, kimchi, and ramen.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/galbi.jpg" alt="Galbi">
-            <h4>Galbi – ₱350</h4>
-            <p>Grilled short ribs marinated in soy and garlic.</p>
-          </div>
-        </div>
-      </div>
+    <div class="burger-menu-btn">
+      <img src="images/Burgermenu.png" alt="" onclick="toggleMenu()">
+    </div>
+  </div>
 
-      <div class="menu-category">
-        <h3>Samgyeopsal Sets</h3>
-        <div class="menu-items">
-          <div class="menu-card">
-            <img src="images/samgyupsal-basic.jpg" alt="Samgyeopsal Set 499">
-            <h4>Basic Samgyeopsal – ₱499</h4>
-            <p>Unlimited pork belly with side dishes and steamed rice.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/samgyupsal-premium.jpg" alt="Samgyeopsal Set 599">
-            <h4>Premium Samgyeopsal – ₱599</h4>
-            <p>Includes pork & beef cuts, 6 banchan, lettuce, and sauces.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/samgyupsal-deluxe.jpg" alt="Samgyeopsal Set 648">
-            <h4>Deluxe Samgyeopsal – ₱648</h4>
-            <p>All meats (pork, beef, chicken), cheese dip, and unlimited sides.</p>
-          </div>
+    <div class="menu-container-mobile" id="mobileMenu">
+      <img class="close-btn" src="images/close.png" alt="" onclick="toggleMenu()">
+      <ul class="nav-menu-mobile">
+          <li><a href="#" onclick="showSection('home-section')"> Home </a></li>
+          <li><a href="#" onclick="showSection('food-menu-section')"> Food Menu </a></li>
+          <li><a href="#" onclick="showSection('confirmOrder')"> Add to Cart </a></li>
+          <li><a href="review.html"><button class="menu-btn"> Order Now </button></a></li>
+      </ul>
+    </div>
+
+  <div id="home-section" class="home">
+    <div style="position: relative;">
+      <img class="home-img" src="images/home picture.jpg" width="100%" height="100%">
+    </div>
+  </div>
+
+   <section id="food-menu-section" class="food-menu" style="display: none;">
+    <h2>Our Food Menu</h2>
+
+    <!-- Appetizers -->
+    <section class="menu-category" id="appetizers">
+      <h3 class="menu-tab" data-target="appetizers"> Appetizers </h3>
+      <div class="menu-items">
+        <div class="menu-card">
+          <img src="images/japchae.jpg" alt="Japchae">
+          <h4> Japchae – ₱220 </h4>
+          <p> Stir-fried glass noodles with vegetables and beef. </p>
         </div>
-      </div>
-    
-      <div class="menu-category">
-        <h3>Soup</h3>
-        <div class="menu-items">
-          <div class="menu-card">
-            <img src="images/yukgaejang.jpg" alt="Yukgaejang">
-            <h4>Yukgaejang – ₱260</h4>
-            <p>Spicy beef soup with scallions and glass noodles.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/miyeokguk.jpg" alt="Miyeokguk">
-            <h4>Miyeokguk – ₱200</h4>
-            <p>Seaweed soup, commonly served on birthdays.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/manduguk.jpg" alt="Manduguk">
-            <h4>Manduguk – ₱240</h4>
-            <p>Korean dumpling soup in a clear broth.</p>
-          </div>
+        <div class="menu-card">
+          <img src="images/haemul-pajeon.jpg" alt="Haemul Pajeon">
+          <h4> Haemul Pajeon – ₱250 </h4>
+          <p> Seafood green onion pancake, crispy and savory. </p>
         </div>
-      </div>
-    
-      <div class="menu-category">
-        <h3>Beverages</h3>
-        <div class="menu-items">
-          <div class="menu-card">
-            <img src="images/Makgeolli Shake.jpg" alt="Makgeolli Shake">
-            <h4>Makgeolli Shake – ₱200</h4>
-            <p>A creamy twist on traditional Korean rice wine.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Ginseng Tea.jpg" alt="Ginseng Tea">
-            <h4>Ginseng Tea – ₱210</h4>
-            <p>Earthy and energizing tea brewed with Korean ginseng roots.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Milkis Soda.jpg" alt="Milkis Soda">
-            <h4>Milkis Soda – ₱200</h4>
-            <p>Sweet, creamy carbonated drink with a hint of yogurt.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Soju Mojito Cocktail.jpg" alt="Soju Mojito Cocktail">
-            <h4>Soju Mojito Cocktail – ₱250</h4>
-            <p>A refreshing mix of soju, mint, and lime.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Margarita.jpg" alt="Margarita">
-            <h4>Margarita – ₱220</h4>
-            <p>Citrusy cocktail with tequila and lime.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Omija Cha.jpg" alt="Omija Cha">
-            <h4>Omija Cha – ₱210</h4>
-            <p>Five-flavor berry tea, served cold or warm.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/maesil-cha.jpg" alt="Maesil-cha">
-            <h4>Maesil-cha – ₱200</h4>
-            <p>Sweet, creamy carbonated drink with a hint of yogurt.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Strawberry latte.jpg" alt="Strawberry latte">
-            <h4>Strawberry latte – ₱250</h4>
-            <p>A refreshing mix of soju, mint, and lime.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Dalgona milk tea.jpg" alt="Dalgona milk tea">
-            <h4>Dalgona milk tea – ₱220</h4>
-            <p>Citrusy cocktail with tequila and lime.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/Galaxy Lemon Mojito.jpg" alt="Galaxy Lemon Mojito">
-            <h4>Galaxy Lemon Mojito – ₱210</h4>
-            <p>Five-flavor berry tea, served cold or warm.</p>
-          </div>
-        </div>
-      </div>
-    
-      <div class="menu-category">
-        <h3>Desserts</h3>
-        <div class="menu-items">
-          <div class="menu-card">
-            <img src="images/baesuk.jpg" alt="Baesuk">
-            <h4>Baesuk – ₱150</h4>
-            <p>Pear dessert simmered with honey and spices.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/hotteok.jpg" alt="Hotteok">
-            <h4>Hotteok – ₱120</h4>
-            <p>Sweet Korean pancake filled with syrup and nuts.</p>
-          </div>
-          <div class="menu-card">
-            <img src="images/hodu-gwaja.jpg" alt="Hodu-gwaja">
-            <h4>Hodu-gwaja – ₱100</h4>
-            <p>Walnut-shaped pastries filled with red bean and walnut.</p>
-          </div>
+        <div class="menu-card">
+          <img src="images/teokkboki.jpg" alt="Teokkboki">
+          <h4> Teokkboki – ₱230 </h4>
+          <p> Chewy rice cakes stir-fried in a spicy-sweet gochujang sauce with fish cakes and eggs. </p>
         </div>
       </div>
     </section>
 
-  <footer>
-    <p>&copy; 2025 Grill & Chill: Soban Seoul | Designed with love for Korean food lovers</p>
-  </footer>
+    <!-- Main Course -->
+    <section class="menu-category" id="main-course">
+      <h3 class="menu-tab" data-target="main-course"> Main Course </h3>
+      <div class="menu-items">
+        <div class="menu-card">
+          <img src="images/bulgogi.jpg" alt="Bulgogi">
+          <h4> Bulgogi – ₱280 </h4>
+          <p> Grilled marinated beef served with sides and rice. </p>
+        </div>
+        <div class="menu-card">
+          <img src="images/budae-jjigae.jpg" alt="Budae Jjigae">
+          <h4> Budae Jjigae – ₱320 </h4>
+          <p> Army stew with sausage, tofu, kimchi, and ramen. </p>
+        </div>
+        <div class="menu-card">
+          <img src="images/galbi.jpg" alt="Galbi">
+          <h4> Galbi – ₱350 </h4>
+          <p> Grilled short ribs marinated in soy and garlic. </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Samgyeopsal Sets -->
+    <section class="menu-category" id="samgyeopsal-sets">
+        <h3 class="menu-tab" data-target="samgyeopsal-sets"> Samgyeopsal Sets </h3>
+        <div class="menu-items">
+          <div class="menu-card">
+            <img src="images/samgyupsal-basic.jpg" alt="Samgyeopsal Set 499">
+            <h4> Basic Samgyeopsal – ₱499 </h4>
+            <p> Unlimited pork belly with side dishes and steamed rice. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/samgyupsal-premium.jpg" alt="Samgyeopsal Set 599">
+            <h4> Premium Samgyeopsal – ₱599 </h4>
+            <p> Includes pork & beef cuts, 6 banchan, lettuce, and sauces. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/samgyupsal-deluxe.jpg" alt="Samgyeopsal Set 648">
+            <h4> eluxe Samgyeopsal – ₱648 </h4>
+            <p> All meats (pork, beef, chicken), cheese dip, and unlimited sides. </p>
+          </div>
+        </div>
+      </section>
+  
+      <!-- Soup -->
+      <section class="menu-category" id="Soup">
+        <h3 class="menu-tab" data-target="soup"> Soup </h3>
+        <div class="menu-items">
+          <div class="menu-card">
+            <img src="images/yukgaejang.jpg" alt="Yukgaejang">
+            <h4> Yukgaejang – ₱260 </h4>
+            <p> Spicy beef soup with scallions and glass noodles. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/miyeokguk.jpg" alt="Miyeokguk">
+            <h4> Miyeokguk – ₱200 </h4>
+            <p> Seaweed soup, commonly served on birthdays. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/manduguk.jpg" alt="Manduguk">
+            <h4> Manduguk – ₱240 </h4>
+            <p> Korean dumpling soup in a clear broth. </p>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Beverages -->
+      <section class="menu-category" id="Beverages">
+        <h3 class="menu-tab" data-target="beverages"> Beverages </h3>
+        <div class="menu-items">
+          <div class="menu-card">
+            <img src="images/Makgeolli Shake.jpg" alt="Makgeolli Shake">
+            <h4> Makgeolli Shake – ₱200 </h4>
+            <p> A creamy twist on traditional Korean rice wine. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Ginseng Tea.jpg" alt="Ginseng Tea">
+            <h4> Ginseng Tea – ₱210 </h4>
+            <p> Earthy and energizing tea brewed with Korean ginseng roots. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Milkis Soda.jpg" alt="Milkis Soda">
+            <h4> Milkis Soda – ₱200 </h4>
+            <p> Sweet, creamy carbonated drink with a hint of yogurt. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Soju Mojito Cocktail.jpg" alt="Soju Mojito Cocktail">
+            <h4> Soju Mojito Cocktail – ₱250 </h4>
+            <p> A refreshing mix of soju, mint, and lime. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Margarita.jpg" alt="Margarita">
+            <h4 >Margarita – ₱220 </h4>
+            <p> Citrusy cocktail with tequila and lime. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Omija Cha.jpg" alt="Omija Cha">
+            <h4> Omija Cha – ₱210 </h4>
+            <p> Five-flavor berry tea, served cold or warm. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/maesil-cha.jpg" alt="Maesil-cha">
+            <h4> Maesil-cha – ₱200 </h4>
+            <p> Sweet, creamy carbonated drink with a hint of yogurt. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Strawberry latte.jpg" alt="Strawberry latte">
+            <h4> Strawberry latte – ₱250 </h4>
+            <p> A refreshing mix of soju, mint, and lime. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Dalgona milk tea.jpg" alt="Dalgona milk tea">
+            <h4> Dalgona milk tea – ₱220 </h4>
+            <p> Citrusy cocktail with tequila and lime. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/Galaxy Lemon Mojito.jpg" alt="Galaxy Lemon Mojito">
+            <h4> Galaxy Lemon Mojito – ₱210 </h4>
+            <p> Five-flavor berry tea, served cold or warm. </p>
+          </div>
+        </div>
+      </section>
 
-  <script src="js/script.js"></script>
+      <!-- Desserts -->
+      <section class="menu-category" id="Desserts">
+        <h3 class="menu-tab" data-target="desserts"> Desserts </h3>
+        <div class="menu-items">
+          <div class="menu-card">
+            <img src="images/baesuk.jpg" alt="Baesuk">
+            <h4> Baesuk – ₱150 </h4>
+            <p> Pear dessert simmered with honey and spices. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/hotteok.jpg" alt="Hotteok">
+            <h4> Hotteok – ₱120 </h4>
+            <p> Sweet Korean pancake filled with syrup and nuts. </p>
+          </div>
+          <div class="menu-card">
+            <img src="images/hodu-gwaja.jpg" alt="Hodu-gwaja">
+            <h4> Hodu-gwaja – ₱100 </h4>
+            <p> Walnut-shaped pastries filled with red bean and walnut. </p>
+          </div>
+        </div>
+      </section>
+    
+      </section>
+      <footer>
+        <p>&copy; 2025 Grill & Chill: Soban Seoul | Designed with love for Korean food lovers </p>
+      </footer>
+
+      <script>
+                function toggleMenu(){
+                document.querySelector(".menu-container-mobile").classList.toggle("active");
+            }
+            </script>
+
+      <script src="js/script.js"></script>
+      <section id="review-section" style="display: none;"></section>
 </body>
 </html>

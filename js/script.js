@@ -1,3 +1,12 @@
+function showSection(sectionId) {
+  const sections = document.querySelectorAll('#home-section, #food-menu-section');
+  sections.forEach(section => section.style.display = 'none');
+  const target = document.getElementById(sectionId);
+  if (target) {
+    target.style.display = 'block';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const menuItems = document.querySelectorAll('.menu-card');
   const tabs = document.querySelectorAll('.menu-category h3');
@@ -9,8 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
   tabs.forEach(tab => {
     tab.style.cursor = 'pointer';
     tab.addEventListener('click', () => {
+      const targetId = tab.dataset.target;
       document.querySelectorAll('.menu-category').forEach(section => section.style.display = 'none');
-      tab.parentElement.style.display = 'block';
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.style.display = 'block';
+      }
     });
   });
 
@@ -46,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     orderList.forEach(item => {
       const li = document.createElement('li');
-      li.textContent = `${item.name} x${item.quantity} = ₱${item.price * item.quantity}`;
+      li.textContent = '${item.name} x${item.quantity} = ₱${(item.price * item.quantity).toFixed(2)}';
       total += item.price * item.quantity;
       ul.appendChild(li);
     });
 
     orderSummary.appendChild(ul);
     const totalElement = document.createElement('p');
-    totalElement.innerHTML = `<strong>Total: ₱${total.toFixed(2)}</strong>`;
+    totalElement.innerHTML = 'strong>Total: ₱${total.toFixed(2)}</strong';
     orderSummary.appendChild(totalElement);
 
     const submitBtn = document.createElement('button');
@@ -71,10 +84,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const name = prompt('Please enter your name to complete the order:');
     if (name) {
-      alert(`Thank you, ${name}! Your order has been submitted.`);
-      orderSummary.innerHTML = `<h3>Thank you, ${name}!</h3><p>Your order has been received.</p>`;
+      alert('Thank you, ${name}! Your order has been submitted.');
+      orderSummary.innerHTML = '<h3>Thank you, ${name}!</h3><p>Your order has been received.</p>';
     }
   }
+
+ const burgerBtn = document.querySelector('.burger-menu-btn');
+const mobileMenu = document.getElementById('mobileMenu');
+const overlay = document.createElement('div'); 
+overlay.classList.add('overlay'); 
+document.body.appendChild(overlay);
+
+burgerBtn.addEventListener('click', () =>{
+    mobileMenu.classList.add('active');
+    overlay.classList.add('active');
+    burgerBtn.style.display = 'none'; 
+});
+
+overlay.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    burgerBtn.style.display = 'block'; 
+});
+
+  const closeBtn = document.querySelector('.close-btn'); 
+
+closeBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    overlay.classList.remove('active');
+    burgerBtn.style.display = 'block'; 
+});
 
   const style = document.createElement('style');
   style.innerHTML = `
